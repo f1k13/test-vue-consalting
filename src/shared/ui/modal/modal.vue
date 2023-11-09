@@ -1,5 +1,5 @@
 <template lang="">
-  <div class="modal" v-if="isVisible === true" @click="hideModal">
+  <div class="modal" v-if="isVisible" @click="hideModal">
     <div
       class="m-auto bg-textSecondary rounded-3xl min-h-[50px] min-w-[300px] p-5"
     >

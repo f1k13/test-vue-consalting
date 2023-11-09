@@ -4,7 +4,7 @@
       {{ label }}
       <input
         :value="modelValue"
-        @input="updateInput"
+        @input="onChange"
         class="root"
         type="text"
         @click="(e) => e.stopPropagation()"
@@ -19,7 +19,7 @@ export default {
     label: String,
   },
   methods: {
-    updateInput(event) {
+    onChange(event) {
       this.$emit("update:modelValue", event.target.value);
     },
   },

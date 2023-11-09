@@ -20,20 +20,14 @@
 </template>
 <script>
 import textField from "@/shared/ui/text-field/text-field.vue";
+import { mapState } from "vuex";
 export default {
   components: {
     textField,
   },
-  data() {
-    return {
-      staff: {
-        name: "",
-        surname: "",
-        age: "",
-        experience: "",
-        address: "",
-      },
-    };
+
+  computed: {
+    ...mapState(["staff"]),
   },
   methods: {
     addStaff() {

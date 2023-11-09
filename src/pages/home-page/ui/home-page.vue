@@ -1,7 +1,7 @@
 <template lang="">
   <div class="flex flex-col justify-center items-center w-full">
     <form-created />
-    <staff-list :staffPeoples="staffPeoples" @update="updateValue" />
+    <staff-list :staffPeoples="staffPeoples" />
   </div>
 </template>
 <script>
