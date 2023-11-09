@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent class="flex w-full flex-col items-center gap-10">
-    <h1 class="text-2xl text-white">Add an employee</h1>
+    <h1 class="text-2xl text-white ont-bold">Add an employee</h1>
     <text-field label="Enter name" v-model="staff.name"></text-field>
     <text-field label="Enter surname" v-model="staff.surname"></text-field>
     <text-field label="Enter age" v-model="staff.age"></text-field>
@@ -10,7 +10,12 @@
     ></text-field>
     <text-field label="Enter address" v-model="staff.address"></text-field>
 
-    <button @click="addStaff">Add</button>
+    <button
+      class="text-2xl text-white border-2 border-focusColor rounded-xl p-2 hover:bg-focusColor"
+      @click="addStaff"
+    >
+      Create staff
+    </button>
   </form>
 </template>
 <script>
@@ -32,15 +37,16 @@ export default {
   },
   methods: {
     addStaff() {
-      this.staff.id = Date.now();
-      this.$emit("create", this.staff);
-      this.staff = {
-        name: "",
-        surname: "",
-        age: "",
-        experience: "",
-        address: "",
-      };
+        this.staff.id = Date.now();
+        this.$emit("create", this.staff);
+        this.staff = {
+          name: "",
+          surname: "",
+          age: "",
+          experience: "",
+          address: "",
+        };
+      
     },
   },
 };

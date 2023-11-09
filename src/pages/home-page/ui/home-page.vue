@@ -20,7 +20,7 @@ export default {
   methods: {
     createStaff(staff) {
       this.staffPeoples.push(staff);
-      console.log(staff);
+      localStorage.setItem("staff", JSON.stringify(this.staffPeoples));
     },
   },
 };
