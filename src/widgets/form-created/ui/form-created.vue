@@ -9,9 +9,9 @@
       v-model="staff.experience"
     ></text-field>
     <text-field label="Enter address" v-model="staff.address"></text-field>
-
     <button
       class="text-2xl text-white border-2 border-focusColor rounded-xl p-2 hover:bg-focusColor"
+      type="submit"
       @click="addStaff"
     >
       Create staff
@@ -19,7 +19,7 @@
   </form>
 </template>
 <script>
-import textField from "@/shared/ui/text-field.vue";
+import textField from "@/shared/ui/text-field/text-field.vue";
 export default {
   components: {
     textField,
@@ -37,16 +37,24 @@ export default {
   },
   methods: {
     addStaff() {
-        this.staff.id = Date.now();
-        this.$emit("create", this.staff);
-        this.staff = {
-          name: "",
-          surname: "",
-          age: "",
-          experience: "",
-          address: "",
-        };
-      
+      const store = this.$store;
+      const staff = {
+        id: Date.now(),
+        name: this.staff.name,
+        surname: this.staff.surname,
+        age: this.staff.age,
+        experience: this.staff.experience,
+        address: this.staff.address,
+      };
+
+      store.commit("setStaff", staff);
+      this.staff = {
+        name: "",
+        surname: "",
+        age: "",
+        experience: "",
+        address: "",
+      };
     },
   },
 };

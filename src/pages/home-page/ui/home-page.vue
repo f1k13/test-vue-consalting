@@ -1,7 +1,7 @@
 <template lang="">
   <div class="flex flex-col justify-center items-center w-full">
-    <form-created @create="createStaff" />
-    <staff-list :staffPeoples="staffPeoples" />
+    <form-created />
+    <staff-list :staffPeoples="staffPeoples" @update="updateValue" />
   </div>
 </template>
 <script>
@@ -11,17 +11,6 @@ export default {
   components: {
     formCreated,
     staffList,
-  },
-  data() {
-    return {
-      staffPeoples: [{}],
-    };
-  },
-  methods: {
-    createStaff(staff) {
-      this.staffPeoples.push(staff);
-      localStorage.setItem("staff", JSON.stringify(this.staffPeoples));
-    },
   },
 };
 </script>

@@ -1,12 +1,13 @@
 <template lang="">
   <div class="w-2/6">
-    <label class="label" for="">
+    <label class="label">
       {{ label }}
       <input
         :value="modelValue"
         @input="updateInput"
         class="root"
         type="text"
+        @click="(e) => e.stopPropagation()"
       />
     </label>
   </div>
