@@ -1,19 +1,25 @@
 <template lang="">
-  <label className="label w-2/6">
-    {{ label }}
-    <input v-bind="modelValue" class="root" type="text" />
-  </label>
+  <div class="w-2/6">
+    <label class="label" for="">
+      {{ label }}
+      <input
+        :value="modelValue"
+        @input="updateInput"
+        class="root"
+        type="text"
+      />
+    </label>
+  </div>
 </template>
 <script>
 export default {
   props: {
-    label: {
-      type: String,
-      required: false,
-    },
-    modelValue: {
-      type: String,
-      required: false,
+    modelValue: [String, Number],
+    label: String,
+  },
+  methods: {
+    updateInput(event) {
+      this.$emit("update:modelValue", event.target.value);
     },
   },
 };
