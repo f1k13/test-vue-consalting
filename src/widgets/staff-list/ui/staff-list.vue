@@ -18,6 +18,7 @@ export default {
   components: {
     staffItem,
   },
+  // Компонент для отрисовки таблицы, получает данные из store и передает их в компонент staff-item
   computed: {
     ...mapState({
       staffPeoples: state => state.staff.staffPeoples,

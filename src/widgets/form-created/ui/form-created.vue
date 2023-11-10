@@ -31,6 +31,7 @@ export default {
   },
   methods: {
     addStaff() {
+      // Функция добавления сотрудника в ней я инициализирую объект с полями у сотрудник и передаю его в store
       const store = this.$store;
       const staff = {
         id: Date.now(),
@@ -40,17 +41,16 @@ export default {
         experience: this.staff.experience,
         address: this.staff.address,
       };
-
+      // Отправляю данные в store
       store.commit("setStaff", staff);
-      this.staff = {
-        name: "",
-        surname: "",
-        age: "",
-        experience: "",
-        address: "",
-      };
+      this.staff.name = "";
+      this.staff.surname = "";
+      this.staff.age = "";
+      this.staff.experience = "";
+      this.staff.address = "";
+      // Очищаю все поля после добавление 
     },
   },
 };
 </script>
-<style lang=""></style>
+<style></style>

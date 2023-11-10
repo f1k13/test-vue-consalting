@@ -1,5 +1,5 @@
-<template lang="">
-  <div class="w-2/6">
+<template>
+  <div class="w-[400px]">
     <label class="label">
       {{ label }}
       <input
@@ -17,8 +17,10 @@ export default {
   props: {
     modelValue: [String, Number],
     label: String,
+    size: String,
   },
   methods: {
+    // Обработка изменений в инпуте и передача его в родительский компонент
     onChange(event) {
       this.$emit("update:modelValue", event.target.value);
     },

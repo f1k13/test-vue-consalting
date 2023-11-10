@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="modal" v-if="isVisible" @click="hideModal">
     <div
       class="m-auto bg-textSecondary rounded-3xl min-h-[50px] min-w-[300px] p-5"
@@ -16,6 +16,7 @@ export default {
     },
   },
   methods: {
+    // Компонент модального окна передает свойство isVisible в родительский компонент и обрабатывает его
     hideModal() {
       this.$emit("update:isVisible", false);
     },

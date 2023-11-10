@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="16"
@@ -15,4 +15,4 @@
 <script>
 export default {};
 </script>
-<style lang=""></style>
+<style></style>

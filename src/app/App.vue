@@ -1,4 +1,4 @@
-<template lang="">
+<template>
   <div class="flex justify-center flex-col items-center w-100% mt-10">
     <home-page />
   </div>
@@ -14,6 +14,9 @@ export default {
 </script>
 
 <style>
+
+  /* Подключение Tailwind и обнуление стилей  */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

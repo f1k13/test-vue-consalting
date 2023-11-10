@@ -1,7 +1,7 @@
-<template lang="">
+<template>
   <div class="flex flex-col justify-center items-center w-full">
     <form-created />
-    <staff-list :staffPeoples="staffPeoples" />
+    <staff-list />
   </div>
 </template>
 <script>
@@ -14,4 +14,4 @@ export default {
   },
 };
 </script>
-<style lang=""></style>
+<style></style>

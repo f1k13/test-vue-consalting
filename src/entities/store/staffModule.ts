@@ -1,3 +1,4 @@
+// Типизирую state
 type staff = {
   id: number;
   name: string;
@@ -9,6 +10,8 @@ type staff = {
 
 export const staffModule = {
   state: () => ({
+    // Инициализация state
+    // staffPeoples - массив сотрудников которй хранится в localStorage
     staffPeoples: JSON.parse(localStorage.getItem("staff") || "[]"),
     staff: {
       name: "",
@@ -21,18 +24,34 @@ export const staffModule = {
   getters: {},
   mutations: {
     setStaff(state: any, staff: staff) {
-      state.staffPeoples.push(staff);
-      localStorage.setItem("staff", JSON.stringify(state.staffPeoples));
+      // Функция для добавление сотрудника в массив, тут я принимаю state что является самим массивом, и объект сотрудника который добавляю в массив
+      if (
+        staff.name &&
+        staff.surname &&
+        staff.age &&
+        staff.experience &&
+        staff.address
+        // Проверяю что поля не пустые
+      ) {
+        state.staffPeoples.push(staff);
+        // Добавляю сотрудника в массив
+        localStorage.setItem("staff", JSON.stringify(state.staffPeoples));
+        // Сохраняю изменения
+      }
     },
-    setField: (
+
+    editField: (
+      // Функция для изменения ячейки в ней я принимаю state, и payload со следующями полями id - для идентификации сотрудника, field - для идентификации ячейки в ней, newValue - новое значение ячейки
       state: any,
       payload: { id: number; field: string; newValue: string }
     ) => {
+      // При помощи фукнции findStaff нахожу сотрудника по id
       const findStaff = state.staffPeoples.find(
         (item: staff) => item.id === payload.id
       );
-
+      // Изменяю значение ячейки в ней
       findStaff[payload.field] = payload.newValue;
+      // Сохраняю изменения
       localStorage.setItem("staff", JSON.stringify(state.staffPeoples));
     },
   },
