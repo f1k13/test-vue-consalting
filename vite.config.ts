@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url";
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: "/test-vue-consalting",
   plugins: [vue()],
   resolve: {
     alias: [
